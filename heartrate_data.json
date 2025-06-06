@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    username: jane-doe,
+    healthDomain: blood-pressure,
+    date: YYYMMDD,
+  },
+  "timeseries": {
+    [
+        time: <hhmmss>,
+        duration: s, # seconds
+        data:{
+          systolic: n,
+          diastolic: m,
+          average: p,
+        }
+    ],
+    [
+        time: <hhmmss>,
+        duration: s, # seconds
+        data:{
+          systolic: n,
+          diastolic: m,
+          aveerage: p,
+        }
+    ],
+    
+  }
+}
+
+{
+  "metadata": {
+    username: jane-doe,
+    healthDomain: sleep-stages,
+    date: YYYMMDD,
+  },
+  "timeseries": {
+    [
+        time: <hhmmss>,
+        duration: s, # seconds
+        data:{
+          stage: N1,
+          stage_confidence: eN1,
+        }
+    ],
+    [
+        time: <hhmmss>,
+        duration: s, # seconds
+        data:{
+          stage: REM,
+          stage_confidence: eREM
+
+        }
+    ],
+    
+  }
+}
