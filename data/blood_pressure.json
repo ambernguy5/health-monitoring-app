@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "username": "jane-doe",
+    "healthDomain": "blood-pressure",
+    "date": "20250605"
+  },
+  "timeseries": [
+    {
+      "time": "080000",
+      "duration": 60,
+      "data": {
+        "systolic": 120,
+        "diastolic": 80,
+        "average": 100
+      }
+    },
+    {
+      "time": "081000",
+      "duration": 60,
+      "data": {
+        "systolic": 125,
+        "diastolic": 82,
+        "average": 102
+      }
+    }
+  ]
+}
