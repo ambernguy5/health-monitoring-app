@@ -1,0 +1,16 @@
+# macOS system files
+.DS_Store
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Conda environment
+env/
+.conda/
+
+# Logs
+*.log
+
+# IDE settings
+.vscode/
