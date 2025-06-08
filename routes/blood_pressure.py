@@ -17,6 +17,7 @@ def get_raw_data():
         raw_data = json.load(f)
     return raw_data
 
+
 @router.get("/timeseries", response_model = models.TimeEntry)
 def get_timeseries():
     data = get_raw_data()
@@ -33,16 +34,16 @@ def get_blood_pressure():
     
 @router.get("/plot")
 def plot():
-    #This is for later when we have complete json data entries 
-    '''
+    models.generate_mock_bp_json()
     raw_data = get_raw_data()
+
     # list of each systolic, diastolic, average bpm values
     times = [timepoint['time'] for timepoint in raw_data['timeseries']]
     systolic = [timepoint['data']['systolic'] for timepoint in raw_data['timeseries']]
     diastolic = [timepoint['data']['diastolic'] for timepoint in raw_data['timeseries']]
     average = [timepoint['data']['average'] for timepoint in raw_data['timeseries']]
-    '''
-    times, systolic, diastolic, average = models.generate_mock_bp_lists()
+    
+    #times, systolic, diastolic, average = models.generate_mock_bp_lists()
 
     plt.figure(figsize = (15, 7))
     plt.plot(times, systolic, label = 'Systolic', marker = 'o', color = 'darkslateblue')
