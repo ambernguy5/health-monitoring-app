@@ -5,7 +5,7 @@ from pathlib import Path
 
 router = APIRouter()
 
-DATA_FILE = Path("data/blood_pressure.json")
+DATA_FILE = Path("root/jane_doe/20250605/blood_pressure.json")
 
 @router.get("/raw-data", response_model=models.HealthData)
 def get_raw_data():

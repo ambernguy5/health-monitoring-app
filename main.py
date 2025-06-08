@@ -1,7 +1,6 @@
-# main.py
 from fastapi import FastAPI
-from routes import blood_pressure
+from routes.blood_pressure import router as bp_router
 
-app = FastAPI(title="Health Monitoring API",
-              description="Moniotors blood pressure data")
-app.include_router(blood_press
+app = FastAPI(title = "Health Monitoring API",
+              descriptionn = "Moniotors blood pressure data")
+app.include_router(bp_router)
