@@ -66,23 +66,26 @@ def plot():
 
     return Response(content = buf.getvalue(), media_type = "image/png")
 
-@router.post("/notification")
-def post_notif():
+@router.get("/notification")
+def bpm_notif():
     data = get_raw_data()
 
     times = [timepoint['time'] for timepoint in data['timeseries']]
     systolic = [timepoint['data']['systolic'] for timepoint in data['timeseries']]
     diastolic = [timepoint['data']['diastolic'] for timepoint in data['timeseries']]
-    average = [timepoint['data']['average'] for timepoint in data['timeseries']]
     
     # thresholds for systolic and diastolic bpm
+    # still need to figure out continuous looping of notifs?
+    threshold = 'Normal'
     for i in len(times):
         if systolic[i] < 120 and diastolic[i] < 80:
-            threshold = 'Normal'
+            threshold = f"Normal at time {times[i]}"
         elif systolic[i] in range(120, 130) and diastolic[i] < 80:
             threshold = 'Elevated'
         elif systolic[i] in range(130, 140) or diastolic[i] in range(80, 89):
-            threshold = 'Hypertension'
-    return 
+            threshold = 'Hypertension Stage 1'
+        elif systolic[i] >= 140 or diastolic[i] >= 90:
+            threshold = 'Hypertension Stage 2'
+    return threshold
 
 

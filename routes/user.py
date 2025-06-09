@@ -18,3 +18,10 @@ def get_metadata():
     data = get_raw_data()
     metadata = data['metadata']
     return metadata
+
+@router.get("/metadata", response_model=models.Metadata)
+def get_metadata():
+    data = get_raw_data()
+    metadata = data['metadata']
+    return metadata
+
