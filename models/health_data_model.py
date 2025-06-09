@@ -74,7 +74,7 @@ def generate_mock_bp_json(username="jane_doe", date="20250605"):
         "timeseries": timeseries
     }
 
-    output_path = Path(f"root/jane_doe/20250605/blood_pressure.json")
+    output_path = Path(f"root/{username}/{date}/blood_pressure.json")
     output_path.parent.mkdir(parents=True, exist_ok=True)  # ensure directories exist
 
     with open(output_path, "w") as f:
