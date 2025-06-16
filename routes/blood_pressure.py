@@ -18,19 +18,18 @@ def get_raw_data():
     return raw_data
 
 
-@router.get("/timeseries", response_model = models.TimeEntry)
+@router.get("/timeseries", response_model = list[models.TimeEntry])
 def get_timeseries():
     data = get_raw_data()
-    timeseries = data['timeseries'][0]
-    return timeseries
+    return data['timeseries']
 
-
-@router.get("/blood-pressure", response_model = models.BloodPressureData)
-def get_blood_pressure():
+@router.get("/blood-pressure", response_model = list[models.BloodPressureData])
+def get_all_blood_pressure():
     with open(DATA_FILE) as f:
         data = json.load(f)
-    bp = data['timeseries'][0]['data']
-    return bp
+    
+    all_bp = [entry['data'] for entry in data['timeseries']]
+    return all_bp
     
 @router.get("/plot")
 def plot():
