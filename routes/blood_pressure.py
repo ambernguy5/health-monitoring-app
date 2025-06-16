@@ -33,7 +33,7 @@ def get_all_blood_pressure():
     
 @router.get("/plot")
 def plot():
-    models.generate_mock_bp_json()
+    models.generate_mock_bp_json('alice_jane', '20250609')
     raw_data = get_raw_data()
 
     # list of each systolic, diastolic, average bpm values
@@ -65,5 +65,26 @@ def plot():
 
     return Response(content = buf.getvalue(), media_type = "image/png")
 
+@router.get("/notification")
+def bpm_notif():
+    data = get_raw_data()
+
+    times = [timepoint['time'] for timepoint in data['timeseries']]
+    systolic = [timepoint['data']['systolic'] for timepoint in data['timeseries']]
+    diastolic = [timepoint['data']['diastolic'] for timepoint in data['timeseries']]
+    
+    # thresholds for systolic and diastolic bpm
+    # still need to figure out continuous looping of notifs?
+    threshold = 'Normal'
+    for i in len(times):
+        if systolic[i] < 120 and diastolic[i] < 80:
+            threshold = f"Normal at time {times[i]}"
+        elif systolic[i] in range(120, 130) and diastolic[i] < 80:
+            threshold = 'Elevated'
+        elif systolic[i] in range(130, 140) or diastolic[i] in range(80, 89):
+            threshold = 'Hypertension Stage 1'
+        elif systolic[i] >= 140 or diastolic[i] >= 90:
+            threshold = 'Hypertension Stage 2'
+    return threshold
 
 

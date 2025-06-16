@@ -74,7 +74,41 @@ def generate_mock_bp_json(username="jane_doe", date="20250605"):
         "timeseries": timeseries
     }
 
-    output_path = Path(f"root/jane_doe/20250605/blood_pressure.json")
+    output_path = Path(f"root/{username}/{date}/blood_pressure.json")
+    output_path.parent.mkdir(parents=True, exist_ok=True)  # ensure directories exist
+
+    with open(output_path, "w") as f:
+        json.dump(health_data, f, indent=2)
+
+    return output_path
+
+def generate_mock_sleep_json(username="jane_doe", date="20250609"):
+    start_time = datetime.strptime("08:00:00", "%H:%M:%S")
+    timeseries = []
+
+    for i in range(61):  # from 8:00 to 9:00
+        current_time = (start_time + timedelta(minutes=i)).strftime("%H%M%S")
+
+        entry = {
+            "time": current_time,
+            "duration": 60,
+            "data": {
+                "stage": systolic,
+                "stage_confidence": diastolic,
+            }
+        }
+        timeseries.append(entry)
+
+    health_data = {
+        "metadata": {
+            "username": username,
+            "healthDomain": "blood-pressure",
+            "date": date
+        },
+        "timeseries": timeseries
+    }
+
+    output_path = Path(f"root/{username}/{date}/blood_pressure.json")
     output_path.parent.mkdir(parents=True, exist_ok=True)  # ensure directories exist
 
     with open(output_path, "w") as f:
