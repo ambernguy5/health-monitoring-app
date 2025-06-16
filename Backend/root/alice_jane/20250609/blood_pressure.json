@@ -9,9 +9,9 @@
       "time": "080000",
       "duration": 60,
       "data": {
-        "systolic": 106,
-        "diastolic": 80,
-        "average": 93
+        "systolic": 126,
+        "diastolic": 96,
+        "average": 111
       }
     },
     {
@@ -19,120 +19,21 @@
       "duration": 60,
       "data": {
         "systolic": 102,
-        "diastolic": 76,
-        "average": 89
+        "diastolic": 79,
+        "average": 90
       }
     },
     {
       "time": "080200",
       "duration": 60,
       "data": {
-        "systolic": 102,
-        "diastolic": 68,
-        "average": 85
-      }
-    },
-    {
-      "time": "080300",
-      "duration": 60,
-      "data": {
-        "systolic": 116,
-        "diastolic": 70,
-        "average": 93
-      }
-    },
-    {
-      "time": "080400",
-      "duration": 60,
-      "data": {
-        "systolic": 119,
-        "diastolic": 68,
-        "average": 94
-      }
-    },
-    {
-      "time": "080500",
-      "duration": 60,
-      "data": {
-        "systolic": 124,
-        "diastolic": 96,
+        "systolic": 133,
+        "diastolic": 87,
         "average": 110
       }
     },
     {
-      "time": "080600",
-      "duration": 60,
-      "data": {
-        "systolic": 127,
-        "diastolic": 63,
-        "average": 95
-      }
-    },
-    {
-      "time": "080700",
-      "duration": 60,
-      "data": {
-        "systolic": 138,
-        "diastolic": 96,
-        "average": 117
-      }
-    },
-    {
-      "time": "080800",
-      "duration": 60,
-      "data": {
-        "systolic": 130,
-        "diastolic": 70,
-        "average": 100
-      }
-    },
-    {
-      "time": "080900",
-      "duration": 60,
-      "data": {
-        "systolic": 132,
-        "diastolic": 94,
-        "average": 113
-      }
-    },
-    {
-      "time": "081000",
-      "duration": 60,
-      "data": {
-        "systolic": 131,
-        "diastolic": 70,
-        "average": 100
-      }
-    },
-    {
-      "time": "081100",
-      "duration": 60,
-      "data": {
-        "systolic": 122,
-        "diastolic": 100,
-        "average": 111
-      }
-    },
-    {
-      "time": "081200",
-      "duration": 60,
-      "data": {
-        "systolic": 121,
-        "diastolic": 91,
-        "average": 106
-      }
-    },
-    {
-      "time": "081300",
-      "duration": 60,
-      "data": {
-        "systolic": 116,
-        "diastolic": 98,
-        "average": 107
-      }
-    },
-    {
-      "time": "081400",
+      "time": "080300",
       "duration": 60,
       "data": {
         "systolic": 108,
@@ -141,30 +42,129 @@
       }
     },
     {
+      "time": "080400",
+      "duration": 60,
+      "data": {
+        "systolic": 130,
+        "diastolic": 66,
+        "average": 98
+      }
+    },
+    {
+      "time": "080500",
+      "duration": 60,
+      "data": {
+        "systolic": 130,
+        "diastolic": 72,
+        "average": 101
+      }
+    },
+    {
+      "time": "080600",
+      "duration": 60,
+      "data": {
+        "systolic": 109,
+        "diastolic": 80,
+        "average": 94
+      }
+    },
+    {
+      "time": "080700",
+      "duration": 60,
+      "data": {
+        "systolic": 107,
+        "diastolic": 98,
+        "average": 102
+      }
+    },
+    {
+      "time": "080800",
+      "duration": 60,
+      "data": {
+        "systolic": 116,
+        "diastolic": 61,
+        "average": 88
+      }
+    },
+    {
+      "time": "080900",
+      "duration": 60,
+      "data": {
+        "systolic": 137,
+        "diastolic": 75,
+        "average": 106
+      }
+    },
+    {
+      "time": "081000",
+      "duration": 60,
+      "data": {
+        "systolic": 118,
+        "diastolic": 92,
+        "average": 105
+      }
+    },
+    {
+      "time": "081100",
+      "duration": 60,
+      "data": {
+        "systolic": 116,
+        "diastolic": 77,
+        "average": 96
+      }
+    },
+    {
+      "time": "081200",
+      "duration": 60,
+      "data": {
+        "systolic": 135,
+        "diastolic": 63,
+        "average": 99
+      }
+    },
+    {
+      "time": "081300",
+      "duration": 60,
+      "data": {
+        "systolic": 102,
+        "diastolic": 86,
+        "average": 94
+      }
+    },
+    {
+      "time": "081400",
+      "duration": 60,
+      "data": {
+        "systolic": 124,
+        "diastolic": 78,
+        "average": 101
+      }
+    },
+    {
       "time": "081500",
       "duration": 60,
       "data": {
-        "systolic": 103,
-        "diastolic": 61,
-        "average": 82
+        "systolic": 126,
+        "diastolic": 74,
+        "average": 100
       }
     },
     {
       "time": "081600",
       "duration": 60,
       "data": {
-        "systolic": 109,
-        "diastolic": 76,
-        "average": 92
+        "systolic": 104,
+        "diastolic": 77,
+        "average": 90
       }
     },
     {
       "time": "081700",
       "duration": 60,
       "data": {
-        "systolic": 140,
-        "diastolic": 82,
-        "average": 111
+        "systolic": 135,
+        "diastolic": 80,
+        "average": 108
       }
     },
     {
@@ -172,61 +172,61 @@
       "duration": 60,
       "data": {
         "systolic": 113,
-        "diastolic": 85,
-        "average": 99
+        "diastolic": 60,
+        "average": 86
       }
     },
     {
       "time": "081900",
       "duration": 60,
       "data": {
-        "systolic": 115,
-        "diastolic": 88,
-        "average": 102
+        "systolic": 114,
+        "diastolic": 62,
+        "average": 88
       }
     },
     {
       "time": "082000",
       "duration": 60,
       "data": {
-        "systolic": 128,
-        "diastolic": 61,
-        "average": 94
+        "systolic": 137,
+        "diastolic": 80,
+        "average": 108
       }
     },
     {
       "time": "082100",
       "duration": 60,
       "data": {
-        "systolic": 137,
-        "diastolic": 74,
-        "average": 106
+        "systolic": 110,
+        "diastolic": 78,
+        "average": 94
       }
     },
     {
       "time": "082200",
       "duration": 60,
       "data": {
-        "systolic": 114,
-        "diastolic": 83,
-        "average": 98
+        "systolic": 122,
+        "diastolic": 82,
+        "average": 102
       }
     },
     {
       "time": "082300",
       "duration": 60,
       "data": {
-        "systolic": 116,
-        "diastolic": 92,
-        "average": 104
+        "systolic": 114,
+        "diastolic": 66,
+        "average": 90
       }
     },
     {
       "time": "082400",
       "duration": 60,
       "data": {
-        "systolic": 134,
-        "diastolic": 79,
+        "systolic": 132,
+        "diastolic": 80,
         "average": 106
       }
     },
@@ -234,157 +234,22 @@
       "time": "082500",
       "duration": 60,
       "data": {
-        "systolic": 100,
-        "diastolic": 85,
-        "average": 92
+        "systolic": 103,
+        "diastolic": 97,
+        "average": 100
       }
     },
     {
       "time": "082600",
       "duration": 60,
       "data": {
-        "systolic": 107,
-        "diastolic": 61,
-        "average": 84
+        "systolic": 104,
+        "diastolic": 74,
+        "average": 89
       }
     },
     {
       "time": "082700",
-      "duration": 60,
-      "data": {
-        "systolic": 107,
-        "diastolic": 99,
-        "average": 103
-      }
-    },
-    {
-      "time": "082800",
-      "duration": 60,
-      "data": {
-        "systolic": 137,
-        "diastolic": 100,
-        "average": 118
-      }
-    },
-    {
-      "time": "082900",
-      "duration": 60,
-      "data": {
-        "systolic": 138,
-        "diastolic": 72,
-        "average": 105
-      }
-    },
-    {
-      "time": "083000",
-      "duration": 60,
-      "data": {
-        "systolic": 117,
-        "diastolic": 92,
-        "average": 104
-      }
-    },
-    {
-      "time": "083100",
-      "duration": 60,
-      "data": {
-        "systolic": 123,
-        "diastolic": 75,
-        "average": 99
-      }
-    },
-    {
-      "time": "083200",
-      "duration": 60,
-      "data": {
-        "systolic": 130,
-        "diastolic": 60,
-        "average": 95
-      }
-    },
-    {
-      "time": "083300",
-      "duration": 60,
-      "data": {
-        "systolic": 138,
-        "diastolic": 95,
-        "average": 116
-      }
-    },
-    {
-      "time": "083400",
-      "duration": 60,
-      "data": {
-        "systolic": 100,
-        "diastolic": 70,
-        "average": 85
-      }
-    },
-    {
-      "time": "083500",
-      "duration": 60,
-      "data": {
-        "systolic": 103,
-        "diastolic": 87,
-        "average": 95
-      }
-    },
-    {
-      "time": "083600",
-      "duration": 60,
-      "data": {
-        "systolic": 122,
-        "diastolic": 76,
-        "average": 99
-      }
-    },
-    {
-      "time": "083700",
-      "duration": 60,
-      "data": {
-        "systolic": 137,
-        "diastolic": 100,
-        "average": 118
-      }
-    },
-    {
-      "time": "083800",
-      "duration": 60,
-      "data": {
-        "systolic": 129,
-        "diastolic": 68,
-        "average": 98
-      }
-    },
-    {
-      "time": "083900",
-      "duration": 60,
-      "data": {
-        "systolic": 120,
-        "diastolic": 77,
-        "average": 98
-      }
-    },
-    {
-      "time": "084000",
-      "duration": 60,
-      "data": {
-        "systolic": 127,
-        "diastolic": 91,
-        "average": 109
-      }
-    },
-    {
-      "time": "084100",
-      "duration": 60,
-      "data": {
-        "systolic": 106,
-        "diastolic": 74,
-        "average": 90
-      }
-    },
-    {
-      "time": "084200",
       "duration": 60,
       "data": {
         "systolic": 130,
@@ -393,25 +258,259 @@
       }
     },
     {
+      "time": "082800",
+      "duration": 60,
+      "data": {
+        "systolic": 122,
+        "diastolic": 68,
+        "average": 95
+      }
+    },
+    {
+      "time": "082900",
+      "duration": 60,
+      "data": {
+        "systolic": 127,
+        "diastolic": 77,
+        "average": 102
+      }
+    },
+    {
+      "time": "083000",
+      "duration": 60,
+      "data": {
+        "systolic": 120,
+        "diastolic": 75,
+        "average": 98
+      }
+    },
+    {
+      "time": "083100",
+      "duration": 60,
+      "data": {
+        "systolic": 135,
+        "diastolic": 70,
+        "average": 102
+      }
+    },
+    {
+      "time": "083200",
+      "duration": 60,
+      "data": {
+        "systolic": 109,
+        "diastolic": 70,
+        "average": 90
+      }
+    },
+    {
+      "time": "083300",
+      "duration": 60,
+      "data": {
+        "systolic": 105,
+        "diastolic": 71,
+        "average": 88
+      }
+    },
+    {
+      "time": "083400",
+      "duration": 60,
+      "data": {
+        "systolic": 113,
+        "diastolic": 73,
+        "average": 93
+      }
+    },
+    {
+      "time": "083500",
+      "duration": 60,
+      "data": {
+        "systolic": 117,
+        "diastolic": 76,
+        "average": 96
+      }
+    },
+    {
+      "time": "083600",
+      "duration": 60,
+      "data": {
+        "systolic": 110,
+        "diastolic": 97,
+        "average": 104
+      }
+    },
+    {
+      "time": "083700",
+      "duration": 60,
+      "data": {
+        "systolic": 103,
+        "diastolic": 71,
+        "average": 87
+      }
+    },
+    {
+      "time": "083800",
+      "duration": 60,
+      "data": {
+        "systolic": 140,
+        "diastolic": 94,
+        "average": 117
+      }
+    },
+    {
+      "time": "083900",
+      "duration": 60,
+      "data": {
+        "systolic": 121,
+        "diastolic": 99,
+        "average": 110
+      }
+    },
+    {
+      "time": "084000",
+      "duration": 60,
+      "data": {
+        "systolic": 104,
+        "diastolic": 99,
+        "average": 102
+      }
+    },
+    {
+      "time": "084100",
+      "duration": 60,
+      "data": {
+        "systolic": 125,
+        "diastolic": 65,
+        "average": 95
+      }
+    },
+    {
+      "time": "084200",
+      "duration": 60,
+      "data": {
+        "systolic": 139,
+        "diastolic": 60,
+        "average": 100
+      }
+    },
+    {
       "time": "084300",
       "duration": 60,
       "data": {
-        "systolic": 115,
-        "diastolic": 76,
-        "average": 96
+        "systolic": 100,
+        "diastolic": 78,
+        "average": 89
       }
     },
     {
       "time": "084400",
       "duration": 60,
       "data": {
-        "systolic": 126,
-        "diastolic": 77,
-        "average": 102
+        "systolic": 125,
+        "diastolic": 70,
+        "average": 98
       }
     },
     {
       "time": "084500",
+      "duration": 60,
+      "data": {
+        "systolic": 116,
+        "diastolic": 62,
+        "average": 89
+      }
+    },
+    {
+      "time": "084600",
+      "duration": 60,
+      "data": {
+        "systolic": 136,
+        "diastolic": 60,
+        "average": 98
+      }
+    },
+    {
+      "time": "084700",
+      "duration": 60,
+      "data": {
+        "systolic": 107,
+        "diastolic": 60,
+        "average": 84
+      }
+    },
+    {
+      "time": "084800",
+      "duration": 60,
+      "data": {
+        "systolic": 132,
+        "diastolic": 88,
+        "average": 110
+      }
+    },
+    {
+      "time": "084900",
+      "duration": 60,
+      "data": {
+        "systolic": 110,
+        "diastolic": 98,
+        "average": 104
+      }
+    },
+    {
+      "time": "085000",
+      "duration": 60,
+      "data": {
+        "systolic": 132,
+        "diastolic": 62,
+        "average": 97
+      }
+    },
+    {
+      "time": "085100",
+      "duration": 60,
+      "data": {
+        "systolic": 122,
+        "diastolic": 80,
+        "average": 101
+      }
+    },
+    {
+      "time": "085200",
+      "duration": 60,
+      "data": {
+        "systolic": 126,
+        "diastolic": 70,
+        "average": 98
+      }
+    },
+    {
+      "time": "085300",
+      "duration": 60,
+      "data": {
+        "systolic": 116,
+        "diastolic": 83,
+        "average": 100
+      }
+    },
+    {
+      "time": "085400",
+      "duration": 60,
+      "data": {
+        "systolic": 128,
+        "diastolic": 89,
+        "average": 108
+      }
+    },
+    {
+      "time": "085500",
+      "duration": 60,
+      "data": {
+        "systolic": 100,
+        "diastolic": 80,
+        "average": 90
+      }
+    },
+    {
+      "time": "085600",
       "duration": 60,
       "data": {
         "systolic": 138,
@@ -420,138 +519,39 @@
       }
     },
     {
-      "time": "084600",
-      "duration": 60,
-      "data": {
-        "systolic": 125,
-        "diastolic": 89,
-        "average": 107
-      }
-    },
-    {
-      "time": "084700",
-      "duration": 60,
-      "data": {
-        "systolic": 110,
-        "diastolic": 70,
-        "average": 90
-      }
-    },
-    {
-      "time": "084800",
-      "duration": 60,
-      "data": {
-        "systolic": 137,
-        "diastolic": 90,
-        "average": 114
-      }
-    },
-    {
-      "time": "084900",
-      "duration": 60,
-      "data": {
-        "systolic": 117,
-        "diastolic": 94,
-        "average": 106
-      }
-    },
-    {
-      "time": "085000",
-      "duration": 60,
-      "data": {
-        "systolic": 106,
-        "diastolic": 74,
-        "average": 90
-      }
-    },
-    {
-      "time": "085100",
-      "duration": 60,
-      "data": {
-        "systolic": 122,
-        "diastolic": 60,
-        "average": 91
-      }
-    },
-    {
-      "time": "085200",
-      "duration": 60,
-      "data": {
-        "systolic": 112,
-        "diastolic": 89,
-        "average": 100
-      }
-    },
-    {
-      "time": "085300",
-      "duration": 60,
-      "data": {
-        "systolic": 131,
-        "diastolic": 66,
-        "average": 98
-      }
-    },
-    {
-      "time": "085400",
-      "duration": 60,
-      "data": {
-        "systolic": 123,
-        "diastolic": 93,
-        "average": 108
-      }
-    },
-    {
-      "time": "085500",
-      "duration": 60,
-      "data": {
-        "systolic": 135,
-        "diastolic": 74,
-        "average": 104
-      }
-    },
-    {
-      "time": "085600",
-      "duration": 60,
-      "data": {
-        "systolic": 133,
-        "diastolic": 77,
-        "average": 105
-      }
-    },
-    {
       "time": "085700",
       "duration": 60,
       "data": {
-        "systolic": 111,
-        "diastolic": 91,
-        "average": 101
+        "systolic": 137,
+        "diastolic": 87,
+        "average": 112
       }
     },
     {
       "time": "085800",
       "duration": 60,
       "data": {
-        "systolic": 130,
-        "diastolic": 64,
-        "average": 97
+        "systolic": 117,
+        "diastolic": 81,
+        "average": 99
       }
     },
     {
       "time": "085900",
       "duration": 60,
       "data": {
-        "systolic": 113,
-        "diastolic": 86,
-        "average": 100
+        "systolic": 127,
+        "diastolic": 60,
+        "average": 94
       }
     },
     {
       "time": "090000",
       "duration": 60,
       "data": {
-        "systolic": 102,
-        "diastolic": 64,
-        "average": 83
+        "systolic": 118,
+        "diastolic": 88,
+        "average": 103
       }
     }
   ]

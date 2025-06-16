@@ -76,7 +76,7 @@ def bpm_notif():
     # thresholds for systolic and diastolic bpm
     # still need to figure out continuous looping of notifs?
     threshold = 'Normal'
-    for i in len(times):
+    for i in range(len(times)):
         if systolic[i] < 120 and diastolic[i] < 80:
             threshold = f"Normal at time {times[i]}"
         elif systolic[i] in range(120, 130) and diastolic[i] < 80:
