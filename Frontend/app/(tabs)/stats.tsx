@@ -1,10 +1,10 @@
-// app/(tabs)/graphs.tsx
+// app/(tabs)/stats.tsx
 import { View, Text, StyleSheet } from "react-native";
 
-export default function Graphs() {
+export default function Stats() {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Graphs Screen</Text>
+			<Text style={styles.title}>Stats Screen</Text>
 		</View>
 	);
 }
