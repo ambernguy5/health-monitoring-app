@@ -12,8 +12,23 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { LineChart } from "react-native-chart-kit";
+import Svg, { Line } from "react-native-svg";
+import Config from '../config';
 
 const screenWidth = Dimensions.get("window").width;
+
+function formatHHMMSSTo12HourClock(hhmmss: string): string {
+	if (!hhmmss || hhmmss.length < 6) return "--:--";
+
+	const h = parseInt(hhmmss.slice(0, 2), 10);
+	const m = parseInt(hhmmss.slice(2, 4), 10);
+
+	if (isNaN(h) || isNaN(m)) return "--:--";
+
+	const suffix = h >= 12 ? "PM" : "AM";
+	const hour12 = ((h + 11) % 12 + 1); // Convert 0-23 to 1-12
+	return `${hour12}:${m.toString().padStart(2, "0")} ${suffix}`;
+}
 
 export default function Calendar() {
 	const [selectedDate, setSelectedDate] = useState(15);
@@ -21,6 +36,8 @@ export default function Calendar() {
 	const [chartData, setChartData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [currentValue, setCurrentValue] = useState(null);
+	const [selectedReading, setSelectedReading] = useState(null);
+	const [highlightX, setHighlightX] = useState<number | null>(null);
 
 	useEffect(() => {
 		fetchBloodPressureData();
@@ -28,13 +45,15 @@ export default function Calendar() {
 
 	const fetchBloodPressureData = () => {
 		setLoading(true);
-		fetch(`${process.env.EXPO_PUBLIC_BACKEND_URL}/timeseries`)
+		fetch(`${Config.API_BASE_URL}/timeseries`)
 			.then((res) => res.json())
 			.then((timeseries) => {
 				// Process data for chart
-				const labels = timeseries.map((entry, i) =>
-					i % 300 === 0 ? entry.time : "",
-				);
+				const labels = timeseries.map((entry) => {
+					const hhmm = entry.time.slice(0, 4); // e.g., "0810"
+					const minutes = parseInt(hhmm.slice(2, 4), 10);
+					return minutes % 10 === 0 ? formatHHMMSSTo12HourClock(entry.time) : "";
+				});
 				const systolic = timeseries.map((entry) => entry.data.systolic);
 				const diastolic = timeseries.map((entry) => entry.data.diastolic);
 				const average = timeseries.map((entry) => entry.data.average);
@@ -67,6 +86,7 @@ export default function Calendar() {
 						},
 					],
 					legend: ["Systolic", "Diastolic", "Average"],
+					labelIndexes: labels.map((label, i) => (label ? i : null)).filter(i => i !== null)
 				});
 				setLoading(false);
 			})
@@ -257,18 +277,58 @@ export default function Calendar() {
 								width={screenWidth - 40}
 								height={280}
 								yAxisSuffix=" mmHg"
+								yAxisInterval={10}
 								chartConfig={chartConfig}
 								style={styles.chart}
 								withDots={false}
 								withShadow={false}
 								withInnerLines={true}
 								withOuterLines={false}
-								withVerticalLines={false}
+								withVerticalLines={true}
 								withHorizontalLines={true}
 								segments={4}
 								bezier
+								onDataPointClick={({ index, x }) => {
+									const systolic = chartData.datasets[0].data[index];
+									const diastolic = chartData.datasets[1].data[index];
+									const average = chartData.datasets[2].data[index];
+									const label = chartData.labels[index];
+									setSelectedReading({ systolic, diastolic, average, label });
+									setHighlightX(x);
+								}}
 							/>
-
+							{highlightX !== null && (
+								<Svg
+									style={{
+										position: "absolute",
+										top: 15,
+										left: 20 + highlightX,
+										height: 280,
+										width: 1,
+										zIndex: 1,
+									}}
+								>
+									<Line
+										x1="0"
+										y1="0"
+										x2="0"
+										y2="280"
+										stroke="red"
+										strokeWidth="2"
+										strokeDasharray="4"
+									/>
+								</Svg>
+							)}
+							{selectedReading && (
+								<View style={{ marginTop: 10, alignItems: "center" }}>
+									<Text style={{ fontSize: 16, fontWeight: "bold" }}>
+										{selectedReading.label}
+									</Text>
+									<Text>Systolic: {selectedReading.systolic} mmHg</Text>
+									<Text>Diastolic: {selectedReading.diastolic} mmHg</Text>
+									<Text>Average: {selectedReading.average} mmHg</Text>
+								</View>
+							)}
 							{/* Legend */}
 							<View style={styles.legendContainer}>
 								<View style={styles.legendItem}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, Text } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
+import Config from '../config';
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -18,7 +19,7 @@ export default function BloodPressureScreen() {
   const [chartData, setChartData] = useState<ChartData | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://192.168.86.100:8000/timeseries";
+  const API_URL = `${Config.API_BASE_URL}/timeseries`;
 
   useEffect(() => {
     fetch(API_URL)
