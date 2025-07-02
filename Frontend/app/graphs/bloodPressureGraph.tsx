@@ -4,6 +4,21 @@ import { View, Text, ActivityIndicator } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import Svg, { Line } from "react-native-svg";
 
+interface BloodPressureGraphProps {
+  chartData: any;
+  screenWidth: number;
+  chartConfig: any;
+  loading: boolean;
+  selectedReading: {
+    systolic: number;
+    diastolic: number;
+    average: number;
+    label: string;
+  } | null;
+  highlightX: number | null;
+  onDataPointClick: (event: { index: number; x: number }) => void;
+}
+
 export default function BloodPressureGraph({
   chartData,
   screenWidth,
@@ -12,7 +27,7 @@ export default function BloodPressureGraph({
   selectedReading,
   highlightX,
   onDataPointClick,
-}) {
+}: BloodPressureGraphProps) {
   if (loading) {
     return (
       <View style={{ height: 280, justifyContent: "center", alignItems: "center" }}>
@@ -83,4 +98,4 @@ export default function BloodPressureGraph({
       )}
     </View>
   );
-} 
+}

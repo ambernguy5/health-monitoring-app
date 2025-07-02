@@ -17,6 +17,8 @@ import Config from '../config';
 import BloodPressureGraph from "../graphs/bloodPressureGraph";
 import { formatHHMMSSTo12HourClock } from '../utils/formatters';
 import { fetchBloodPressureDataAndProcess, getDisplayValue, getMetricColor} from "../utils/bloodPressureUtils";
+import HeartRateGraph from "../graphs/heartRateGraph";
+import GraphDropdownSelector from "../utils/graphSelector";
 
 
 const screenWidth = Dimensions.get("window").width;
@@ -29,6 +31,7 @@ export default function Calendar() {
 	const [currentValue, setCurrentValue] = useState(null);
 	const [selectedReading, setSelectedReading] = useState(null);
 	const [highlightX, setHighlightX] = useState<number | null>(null);
+	const [selectedGraph, setSelectedGraph] = useState<'bloodPressure' | 'heartRate'>('bloodPressure');
 
 	
 	useEffect(() => {
@@ -64,7 +67,6 @@ export default function Calendar() {
 	return (
 		<View style={styles.container}>
 			<StatusBar barStyle="dark-content" backgroundColor="#f8f9fa" />
-
 			<ScrollView showsVerticalScrollIndicator={false}>
 				{/* Header */}
 				<View style={styles.header}>
@@ -84,7 +86,6 @@ export default function Calendar() {
 					<TouchableOpacity
 						style={styles.indexSelector}
 						onPress={() => {
-							// Cycle through metrics
 							const metrics = ["systolic", "diastolic", "average"];
 							const currentIndex = metrics.indexOf(selectedMetric);
 							const nextIndex = (currentIndex + 1) % metrics.length;
@@ -92,8 +93,7 @@ export default function Calendar() {
 						}}
 					>
 						<Text style={styles.indexText}>
-							Indexes:{" "}
-							{selectedMetric.charAt(0).toUpperCase() + selectedMetric.slice(1)}
+							Indexes: {selectedMetric.charAt(0).toUpperCase() + selectedMetric.slice(1)}
 						</Text>
 					</TouchableOpacity>
 				</View>
@@ -133,9 +133,7 @@ export default function Calendar() {
 				{loading ? (
 					<View style={styles.loadingContainer}>
 						<ActivityIndicator size="large" color="#3498db" />
-						<Text style={styles.loadingText}>
-							Loading blood pressure data...
-						</Text>
+						<Text style={styles.loadingText}>Loading blood pressure data...</Text>
 					</View>
 				) : (
 					<View style={styles.heartRateContainer}>
@@ -151,63 +149,86 @@ export default function Calendar() {
 						<View style={styles.timestampContainer}>
 							<Text style={styles.timestamp}>Today, 6:35 PM</Text>
 						</View>
-
-						{/* Metric Info */}
 						<View style={styles.metricInfo}>
 							<Text style={styles.metricDescription}>
-								{selectedMetric === "systolic" &&
-									"Systolic pressure (top number)"}
-								{selectedMetric === "diastolic" &&
-									"Diastolic pressure (bottom number)"}
+								{selectedMetric === "systolic" && "Systolic pressure (top number)"}
+								{selectedMetric === "diastolic" && "Diastolic pressure (bottom number)"}
 								{selectedMetric === "average" && "Average blood pressure"}
 							</Text>
 						</View>
 					</View>
 				)}
 
+				{/* Graph Selector */}
+				<GraphDropdownSelector
+					selectedGraph={selectedGraph}
+					setSelectedGraph={setSelectedGraph}
+				/>
+
 				{/* Chart Section */}
 				<View style={styles.chartSection}>
 					<View style={styles.chartHeader}>
-						<Text style={styles.chartTitle}>Blood Pressure Over Time</Text>
-						<TouchableOpacity
-							style={styles.refreshButton}
-							onPress={() =>
-								fetchBloodPressureDataAndProcess(setChartData, setCurrentValue, setLoading, Config.API_BASE_URL)
-							}
-						>
-							<Ionicons name="refresh" size={20} color="#3498db" />
-						</TouchableOpacity>
+						<Text style={styles.chartTitle}>
+							{selectedGraph === "bloodPressure"
+								? "Blood Pressure Over Time"
+								: selectedGraph === "heartRate"
+									? "Heart Rate Over Time"
+									: "Graph"}
+						</Text>
+						{selectedGraph === "bloodPressure" && (
+							<TouchableOpacity
+								style={styles.refreshButton}
+								onPress={() =>
+									fetchBloodPressureDataAndProcess(
+										setChartData,
+										setCurrentValue,
+										setLoading,
+										Config.API_BASE_URL
+									)
+								}
+							>
+								<Ionicons name="refresh" size={20} color="#3498db" />
+							</TouchableOpacity>
+						)}
 					</View>
+
 					<Text style={styles.chartSubtitle}>Live data • Updated just now</Text>
 
 					{loading ? (
 						<View style={styles.chartLoadingContainer}>
 							<ActivityIndicator size="large" color="#3498db" />
 						</View>
-					) : chartData ? (
-							<BloodPressureGraph
-								chartData={chartData}
-								screenWidth={screenWidth}
-								chartConfig={chartConfig}
-								loading={loading}
-								selectedReading={selectedReading}
-								highlightX={highlightX}
-								onDataPointClick={({ index, x }) => {
-									const systolic = chartData.datasets[0].data[index];
-									const diastolic = chartData.datasets[1].data[index];
-									const average = chartData.datasets[2].data[index];
-									const label = chartData.labels[index];
-									setSelectedReading({ systolic, diastolic, average, label });
-									setHighlightX(x);
-								}}
-							/>
+					) : selectedGraph === "bloodPressure" ? (
+						<BloodPressureGraph
+							chartData={chartData}
+							screenWidth={screenWidth}
+							chartConfig={chartConfig}
+							loading={loading}
+							selectedReading={selectedReading}
+							highlightX={highlightX}
+							onDataPointClick={({ index, x }) => {
+								const systolic = chartData.datasets[0].data[index];
+								const diastolic = chartData.datasets[1].data[index];
+								const average = chartData.datasets[2].data[index];
+								const label = chartData.labels[index];
+								setSelectedReading({ systolic, diastolic, average, label });
+								setHighlightX(x);
+							}}
+						/>
+					) : selectedGraph === "heartRate" ? (
+						<HeartRateGraph />
 					) : (
 						<View style={styles.errorContainer}>
 							<Text style={styles.errorText}>Failed to load data</Text>
 							<TouchableOpacity
 								style={styles.retryButton}
 								onPress={() =>
-									fetchBloodPressureDataAndProcess(setChartData, setCurrentValue, setLoading, Config.API_BASE_URL)
+									fetchBloodPressureDataAndProcess(
+										setChartData,
+										setCurrentValue,
+										setLoading,
+										Config.API_BASE_URL
+									)
 								}
 							>
 								<Text style={styles.retryButtonText}>Retry</Text>
@@ -219,6 +240,7 @@ export default function Calendar() {
 		</View>
 	);
 }
+
 
 const styles = StyleSheet.create({
 	container: {
