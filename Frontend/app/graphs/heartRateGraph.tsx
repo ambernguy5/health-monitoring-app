@@ -1,25 +1,19 @@
-// graphs/blood_pressure_graph.tsx
 import React from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import Svg, { Line } from "react-native-svg";
 
-interface BloodPressureGraphProps {
+interface HeartRateGraphProps {
   chartData: any;
   screenWidth: number;
   chartConfig: any;
   loading: boolean;
-  selectedReading: {
-    systolic: number;
-    diastolic: number;
-    average: number;
-    label: string;
-  } | null;
+  selectedReading: any;
   highlightX: number | null;
-  onDataPointClick: (event: { index: number; x: number }) => void;
+  onDataPointClick: (event: any) => void;
 }
 
-export default function BloodPressureGraph({
+export default function HeartRateGraph({
   chartData,
   screenWidth,
   chartConfig,
@@ -27,32 +21,27 @@ export default function BloodPressureGraph({
   selectedReading,
   highlightX,
   onDataPointClick,
-}: BloodPressureGraphProps) {
-  if (loading) {
+}: HeartRateGraphProps) {
+  if (loading || !chartData) {
     return (
-      <View style={{ height: 280, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" color="#3498db" />
-      </View>
-    );
-  }
-
-  if (!chartData) {
-    return (
-      <View style={{ height: 280, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ color: "#e74c3c" }}>Failed to load data</Text>
+      <View style={styles.loadingContainer}>
+        <Text style={styles.loadingText}>Loading heart rate data...</Text>
       </View>
     );
   }
 
   return (
-    <View style={{ position: "relative" }}>
+    <View style={styles.chartContainer}>
+      <Text style={styles.chartTitle}>Heart Rate Over Time</Text>
+
       <LineChart
         data={chartData}
         width={screenWidth - 40}
         height={280}
-        yAxisSuffix=" mmHg"
+        yAxisSuffix=" bpm"
         yAxisInterval={10}
         chartConfig={chartConfig}
+        style={styles.chart}
         withDots={false}
         withShadow={false}
         withInnerLines={true}
@@ -62,7 +51,6 @@ export default function BloodPressureGraph({
         segments={4}
         bezier
         onDataPointClick={onDataPointClick}
-        style={{ borderRadius: 10 }}
       />
 
       {highlightX !== null && (
@@ -90,12 +78,35 @@ export default function BloodPressureGraph({
 
       {selectedReading && (
         <View style={{ marginTop: 10, alignItems: "center" }}>
-          <Text style={{ fontSize: 16, fontWeight: "bold" }}>{selectedReading.label}</Text>
-          <Text>Systolic: {selectedReading.systolic} mmHg</Text>
-          <Text>Diastolic: {selectedReading.diastolic} mmHg</Text>
-          <Text>Average: {selectedReading.average} mmHg</Text>
+          <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+            {selectedReading.label}
+          </Text>
+          <Text>Heart Rate: {selectedReading.heartRate} bpm</Text>
         </View>
       )}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  chartContainer: {
+    padding: 10,
+    alignItems: "center",
+  },
+  chartTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  chart: {
+    borderRadius: 8,
+  },
+  loadingContainer: {
+    padding: 20,
+    alignItems: "center",
+  },
+  loadingText: {
+    fontSize: 16,
+    color: "#888",
+  },
+});
