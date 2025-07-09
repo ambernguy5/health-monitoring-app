@@ -6,7 +6,7 @@ import { router } from 'expo-router';
 
 const StatisticsTab = () => {
   const healthData = [
-    { id: '1', title: 'Heart Rate', iconName: 'heart', iconColor: '#e74c3c', navigateTo: '/stats/BloodPressureGraph' },
+    { id: '1', title: 'Blood Pressure', iconName: 'heart', iconColor: '#e74c3c', navigateTo: '/stats/bloodPressureScreen' },
     { id: '2', title: 'Sleep Duration', iconName: 'bed', iconColor: '#9b59b6' },
     { id: '3', title: 'Steps', iconName: 'flame', iconColor: '#f39c12' }
   ];
