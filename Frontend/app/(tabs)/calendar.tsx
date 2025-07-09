@@ -11,13 +11,10 @@ import {
 	ActivityIndicator,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { LineChart } from "react-native-chart-kit";
-import Svg, { Line } from "react-native-svg";
 import Config from '../config';
-import BloodPressureGraph from "../graphs/bloodPressureGraph";
-import { formatHHMMSSTo12HourClock } from '../utils/formatters';
+import BloodPressureGraph from "../components/graphs/bloodPressureGraph";
 import { fetchBloodPressureDataAndProcess, getDisplayValue, getMetricColor} from "../utils/bloodPressureUtils";
-import HeartRateGraph from "../graphs/heartRateGraph";
+import HeartRateGraph from "../components/graphs/heartRateGraph";
 import GraphDropdownSelector from "../utils/graphSelector";
 
 
@@ -202,7 +199,7 @@ export default function Calendar() {
 						<BloodPressureGraph
 							chartData={chartData}
 							screenWidth={screenWidth}
-							chartConfig={chartConfig}
+							//chartConfig={chartConfig}
 							loading={loading}
 							selectedReading={selectedReading}
 							highlightX={highlightX}
