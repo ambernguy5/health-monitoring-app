@@ -25,7 +25,7 @@ export default function BloodPressureScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Blood Pressure Stats</Text>
+      <Text style={styles.title}>Blood Pressure Statistics</Text>
       <BloodPressureGraph
         chartData={chartData}
         loading={loading}

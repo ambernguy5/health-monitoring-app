@@ -9,6 +9,15 @@ class BloodPressureData(BaseModel):
     diastolic: int
     average: int
 
+class SleepData(BaseModel):
+    stage: str
+    stage_confidence: float
+
+class SleepTimeEntry(BaseModel):
+    time: str  # hhmmss
+    duration: int
+    data: SleepData
+
 class TimeEntry(BaseModel):
     time: str  # hhmmss
     duration: int
