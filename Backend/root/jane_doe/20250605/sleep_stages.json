@@ -36,6 +36,22 @@
         "stage": "REM",
         "stage_confidence": 0.95
       }
+    },
+    {
+      "time": "235500",
+      "duration": 300,
+      "data": {
+        "stage": "N1",
+        "stage_confidence": 0.95
+      }
+    },
+    {
+      "time": "002500",
+      "duration": 1800,
+      "data": {
+        "stage": "N3",
+        "stage_confidence": 0.7
+      }
     }
   ]
 }
